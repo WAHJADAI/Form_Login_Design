@@ -8,16 +8,21 @@ const LogIn = () => {
   } = useForm();
   return (
     <>
-      <div className="container "style={{fontFamily:'Prompt'}}>
-        <div className="d-flex flex-column justify-content-center">
+      <div className="container " style={{ fontFamily: "Prompt" }}>
+        <div className="d-flex flex-column justify-content-center" style={{width:'350px',border:'none',borderRadius:'5px',boxShadow:' 5px ',padding:'10px',margin:'10px'}}>
           <div className="d-flex justify-content-center mb-3 ">
             <img src={logo} alt="Logo Openlandscape" />
           </div>
           <div className="d-flex justify-content-center">
             <form action="">
-              <div className="d-flex justify-content-center" style={{fontSize:'25px',color:'#24406D'}}>เข้าสู่ระบบ</div>
+              <div
+                className="d-flex justify-content-center"
+                style={{ fontSize: "25px", color: "#24406D" }}
+              >
+                เข้าสู่ระบบ
+              </div>
               <div className="mb-3 ">
-                <div className="input-group mb3" style={{ width: "350px" }}>
+                <div className="input-group mb3" >
                   <span className="input-group-text">
                     <i className="fa-solid fa-envelope"></i>
                   </span>
@@ -44,13 +49,25 @@ const LogIn = () => {
               </div>
 
               <div className="d-flex justify-content-center">
-                <button style={{width:'250px',backgroundColor:'#71BC1E',border:'none',}} type="submit">เข้าสู่ระบบ</button>
+                <button
+                  style={{
+                    width: "250px",
+                    backgroundColor: "#71BC1E",
+                    border: "none",
+                    borderRadius:"5px",
+                  }}
+                  type="submit"
+                >
+                  เข้าสู่ระบบ
+                </button>
               </div>
             </form>
           </div>
 
           <div className="d-flex justify-content-center flex-column">
-            <div><p>ลืมรหัสผ่าน</p> <p>คลิกที่นี่</p></div>
+            <div>
+              <p>ลืมรหัสผ่าน</p> <p>คลิกที่นี่</p>
+            </div>
             <button type="button">สร้างบัญชีผู้ใช้งานโดย OPENLANDSCAPE</button>
           </div>
         </div>
