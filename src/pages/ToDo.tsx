@@ -15,8 +15,10 @@ const ToDo = () => {
     resolver: zodResolver(schema),
   });
   return (
-    <div>
-      <div>To Do List</div>
+    <div className="container" style={{ fontFamily: "Prompt" }}>
+      <div className="d-flex justify-content-center">
+        <h1 style={{ color: "blue" }}>To Do List</h1>
+      </div>
       <form
         onSubmit={handleSubmit((data) =>
           setItems([...items, { ...data, id: Date.now(), checklist: false }])

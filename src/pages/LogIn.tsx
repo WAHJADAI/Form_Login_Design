@@ -1,11 +1,13 @@
 import { useForm } from "react-hook-form";
 import logo from "../images/image.png";
+import { useState } from "react";
 const LogIn = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   return (
     <>
       <div className="container " style={{ fontFamily: "Prompt" }}>
@@ -27,7 +29,11 @@ const LogIn = () => {
           <div className="d-flex justify-content-center flex-column">
             <div
               className="d-flex justify-content-center"
-              style={{ fontSize: "25px", color: "#24406D" ,marginBottom:'30px'}}
+              style={{
+                fontSize: "25px",
+                color: "#24406D",
+                marginBottom: "30px",
+              }}
             >
               เข้าสู่ระบบ
             </div>
@@ -56,6 +62,10 @@ const LogIn = () => {
                     id="password"
                     type="text"
                   />
+
+                  <div className="input-group-text">
+                    <i className="fa-solid fa-eye-slash"></i>
+                  </div>
                 </div>
               </div>
 
@@ -66,8 +76,8 @@ const LogIn = () => {
                     backgroundColor: "#71BC1E",
                     border: "none",
                     borderRadius: "5px",
-                    padding:'5px',
-                    color:'white'
+                    padding: "5px",
+                    color: "white",
                   }}
                   type="submit"
                 >
@@ -78,12 +88,40 @@ const LogIn = () => {
           </div>
 
           <div className="d-flex justify-content-center flex-column align-items-center">
-            <div className="d-flex justify-content-center flex-row " >
-              <p style={{margin:'0px',color:"gray"}}>ลืมรหัสผ่าน</p> <p style={{margin:'0px',color:'blue'}}>คลิกที่นี่</p>
+            <div className="d-flex justify-content-center flex-row ">
+              <p style={{ margin: "0px", color: "gray" }}>ลืมรหัสผ่าน </p>
+              <p style={{ margin: "0px", color: "blue" }}>คลิกที่นี่</p>
             </div>
-            <div style={{display:'flex',justifyContent:'center',color:'gray'}}>หรือ</div>
-            <button type="button" style={{padding:'5px 10px 5px 10px',border:'none',boxShadow:'0 5px 5px -5px #333'}}>สร้างบัญชีผู้ใช้งานโดย OPENLANDSCAPE</button>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                color: "gray",
+              }}
+            >
+              หรือ
+            </div>
+            <button
+              type="button"
+              style={{
+                padding: "5px 10px 5px 10px",
+                border: "none",
+                boxShadow: "0px 5px 5px -5px #333",
+                background: "white",
+              }}
+            >
+              สร้างบัญชีผู้ใช้งานโดย OPENLANDSCAPE
+            </button>
           </div>
+        </div>
+        <div className="d-flex justify-content-center flex-row ">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "blue" }}
+          >
+            ติดต่อเจ้าหน้าที่
+          </a>
         </div>
       </div>
     </>
