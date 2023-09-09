@@ -9,13 +9,14 @@ const LogIn = () => {
   return (
     <>
       <div className="container " style={{ fontFamily: "Prompt" }}>
-      <div className="d-flex justify-content-center mb-3 ">
-            <img src={logo} alt="Logo Openlandscape" />
-          </div>
+        <div className="d-flex justify-content-center mb-3 ">
+          <img src={logo} alt="Logo Openlandscape" />
+        </div>
         <div
           className="d-flex flex-column justify-content-center"
           style={{
             width: "350px",
+            height: "400px",
             border: "none",
             borderRadius: "5px",
             boxShadow: "0 0 5px ",
@@ -23,15 +24,14 @@ const LogIn = () => {
             margin: "10px",
           }}
         >
-          
-          <div className="d-flex justify-content-center">
+          <div className="d-flex justify-content-center flex-column">
+            <div
+              className="d-flex justify-content-center"
+              style={{ fontSize: "25px", color: "#24406D" ,marginBottom:'30px'}}
+            >
+              เข้าสู่ระบบ
+            </div>
             <form action="">
-              <div
-                className="d-flex justify-content-center"
-                style={{ fontSize: "25px", color: "#24406D" }}
-              >
-                เข้าสู่ระบบ
-              </div>
               <div className="mb-3 ">
                 <div className="input-group mb3">
                   <span className="input-group-text">
@@ -66,6 +66,8 @@ const LogIn = () => {
                     backgroundColor: "#71BC1E",
                     border: "none",
                     borderRadius: "5px",
+                    padding:'5px',
+                    color:'white'
                   }}
                   type="submit"
                 >
@@ -75,11 +77,12 @@ const LogIn = () => {
             </form>
           </div>
 
-          <div className="d-flex justify-content-center flex-column">
-            <div>
-              <p>ลืมรหัสผ่าน</p> <p>คลิกที่นี่</p>
+          <div className="d-flex justify-content-center flex-column align-items-center">
+            <div className="d-flex justify-content-center flex-row " >
+              <p style={{margin:'0px',color:"gray"}}>ลืมรหัสผ่าน</p> <p style={{margin:'0px',color:'blue'}}>คลิกที่นี่</p>
             </div>
-            <button type="button">สร้างบัญชีผู้ใช้งานโดย OPENLANDSCAPE</button>
+            <div style={{display:'flex',justifyContent:'center',color:'gray'}}>หรือ</div>
+            <button type="button" style={{padding:'5px 10px 5px 10px',border:'none',boxShadow:'0 5px 5px -5px #333'}}>สร้างบัญชีผู้ใช้งานโดย OPENLANDSCAPE</button>
           </div>
         </div>
       </div>
