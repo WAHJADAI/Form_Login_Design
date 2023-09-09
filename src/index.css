@@ -5,4 +5,8 @@
   font-weight: 400;
 
 }
+body{
+  display: flex;
+  justify-content: center;
+}
 

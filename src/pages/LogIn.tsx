@@ -9,10 +9,21 @@ const LogIn = () => {
   return (
     <>
       <div className="container " style={{ fontFamily: "Prompt" }}>
-        <div className="d-flex flex-column justify-content-center" style={{width:'350px',border:'none',borderRadius:'5px',boxShadow:' 5px ',padding:'10px',margin:'10px'}}>
-          <div className="d-flex justify-content-center mb-3 ">
+      <div className="d-flex justify-content-center mb-3 ">
             <img src={logo} alt="Logo Openlandscape" />
           </div>
+        <div
+          className="d-flex flex-column justify-content-center"
+          style={{
+            width: "350px",
+            border: "none",
+            borderRadius: "5px",
+            boxShadow: "0 0 5px ",
+            padding: "10px",
+            margin: "10px",
+          }}
+        >
+          
           <div className="d-flex justify-content-center">
             <form action="">
               <div
@@ -22,7 +33,7 @@ const LogIn = () => {
                 เข้าสู่ระบบ
               </div>
               <div className="mb-3 ">
-                <div className="input-group mb3" >
+                <div className="input-group mb3">
                   <span className="input-group-text">
                     <i className="fa-solid fa-envelope"></i>
                   </span>
@@ -54,7 +65,7 @@ const LogIn = () => {
                     width: "250px",
                     backgroundColor: "#71BC1E",
                     border: "none",
-                    borderRadius:"5px",
+                    borderRadius: "5px",
                   }}
                   type="submit"
                 >
