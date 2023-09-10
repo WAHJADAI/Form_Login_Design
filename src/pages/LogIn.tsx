@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import logo from "../images/image.png";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 const LogIn = () => {
   const {
     register,
@@ -70,19 +71,21 @@ const LogIn = () => {
               </div>
 
               <div className="d-flex justify-content-center">
-                <button
-                  style={{
-                    width: "250px",
-                    backgroundColor: "#71BC1E",
-                    border: "none",
-                    borderRadius: "5px",
-                    padding: "5px",
-                    color: "white",
-                  }}
-                  type="submit"
-                >
-                  เข้าสู่ระบบ
-                </button>
+                <Link to={"/ToDo"}>
+                  <button
+                    style={{
+                      width: "250px",
+                      backgroundColor: "#71BC1E",
+                      border: "none",
+                      borderRadius: "5px",
+                      padding: "5px",
+                      color: "white",
+                    }}
+                    type="submit"
+                  >
+                    เข้าสู่ระบบ
+                  </button>
+                </Link>
               </div>
             </form>
           </div>

@@ -11,7 +11,7 @@ const ToDo = () => {
   const [items, setItems] = useState([
     { id: 1, task: "draf", checklist: false },
   ]);
-  const { register, handleSubmit } = useForm<TaskData>({
+  const { register, handleSubmit, reset } = useForm<TaskData>({
     resolver: zodResolver(schema),
   });
   return (
@@ -20,43 +20,68 @@ const ToDo = () => {
         <h1 style={{ color: "blue" }}>To Do List</h1>
       </div>
       <form
-        onSubmit={handleSubmit((data) =>
-          setItems([...items, { ...data, id: Date.now(), checklist: false }])
-        )}
+        onSubmit={handleSubmit((data) => {
+          setItems([...items, { ...data, id: Date.now(), checklist: false }]),
+            reset();
+        })}
       >
-        <div>
-          <input {...register("task")} type="text" id="task" />
-          <button type="submit">Add Task</button>
+        <div
+          className="d-flex justify-content-center flex-column "
+          style={{ alignItems: "center" }}
+        >
+          <input
+            {...register("task")}
+            type="text"
+            id="task"
+            className="form-control"
+            style={{ height: "35px", margin: "5px" }}
+          />
+          <button
+            className="btn btn-primary"
+            type="submit"
+            style={{ height: "35px", width: "100px", margin: "5px" }}
+          >
+            Add Task
+          </button>
         </div>
       </form>
-      <div>
+      <div style={{ marginTop: "20px" }}>
         <ul>
-          {items?.map((item) => (
-            <li key={item.id}>
-              <input
-                type="checkbox"
-                onClick={() => {
-                  setItems(
-                    items.map((updateTask) =>
-                      updateTask.id === item.id
-                        ? { ...updateTask, checklist: !updateTask.checklist }
-                        : { ...updateTask }
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+            }}
+          >
+            {items?.map((item) => (
+              <li style={{ listStyleType: "none" }} key={item.id}>
+                <input
+                  type="checkbox"
+                  onClick={() => {
+                    setItems(
+                      items.map((updateTask) =>
+                        updateTask.id === item.id
+                          ? { ...updateTask, checklist: !updateTask.checklist }
+                          : { ...updateTask }
+                      )
+                    );
+                  }}
+                />
+                {item.task}
+                <button
+                  className="btn btn-danger"
+                  onClick={() =>
+                    setItems(
+                      items.filter((itemIdDelete) => itemIdDelete.id != item.id)
                     )
-                  );
-                }}
-              />
-              {item.task}
-              <button
-                onClick={() =>
-                  setItems(
-                    items.filter((itemIdDelete) => itemIdDelete.id != item.id)
-                  )
-                }
-              >
-                Delete
-              </button>
-            </li>
-          ))}
+                  }
+                >
+                  Delete
+                </button>
+              </li>
+            ))}
+          </div>
         </ul>
       </div>
     </div>
