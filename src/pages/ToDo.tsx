@@ -1,19 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { date, z } from "zod";
+import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Item } from "../Type/Item";
 
 const schema = z.object({
   task: z.string().min(1),
 });
 type TaskData = z.infer<typeof schema>;
 const ToDo = () => {
-  const [items, setItems] = useState([
-    { id: 1, task: "draf", checklist: false },
-  ]);
+  const [items, setItems] = useState<Item[]>(() => {
+    const loadTodos = localStorage.getItem("todos");
+    if (loadTodos) {
+      return JSON.parse(loadTodos);
+    } else return [];
+  });
+
   const { register, handleSubmit, reset } = useForm<TaskData>({
     resolver: zodResolver(schema),
   });
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(items));
+  }, [items]);
+
   return (
     <div className="container" style={{ fontFamily: "Prompt" }}>
       <div className="d-flex justify-content-center">
@@ -58,6 +67,7 @@ const ToDo = () => {
               <li style={{ listStyleType: "none" }} key={item.id}>
                 <input
                   type="checkbox"
+                  disabled={item.checklist}
                   onClick={() => {
                     setItems(
                       items.map((updateTask) =>
